@@ -1,8 +1,8 @@
-# React + Vite
+GetTo100 Game
+Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+GetTo100 is a React-based web application that allows players to engage in a "Get to 100" game, where the objective is to reach the number 100 in the fewest possible actions. The application provides a user-friendly interface for player registration, turn-based gameplay, and score tracking.
+Components
+1. GameBoardsDisplay
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The GameBoardsDisplay component manages the display of all active game boards. It ensures a responsive layout and highlights the active player's board during their turn.
