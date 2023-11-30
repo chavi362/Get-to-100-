@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function PlayerRegistration(props) {
     const [isSignIn, setIsSignIn] = useState(true);
@@ -55,59 +56,55 @@ function PlayerRegistration(props) {
     }
 
     return (
-        <div>
-            <button onClick={handleToggle}>{isSignIn ? 'SIGN UP' : 'SIGN IN'}</button>
-            {isSignIn ? (
-                <div>
-                    <h2>Sign In</h2>
-                    <form>
-                        <label htmlFor="signInEmail">
-                            Email:
-                            <input type="email" name="email" id="signInEmail" />
-                        </label>
-                        <br />
-                        <label htmlFor="signInPassword">
-                            Password:
-                            <input type="password" name="password" id="signInPassword" />
-                        </label>
-                        <br />
-                        <button type="submit" onClick={signIn}>
-                            Sign In
-                        </button>
-                    </form>
+            <div className="container">
+              <button className="btn btn-primary" onClick={handleToggle}>
+                {isSignIn ? 'SIGN UP' : 'SIGN IN'}
+              </button>
+              {isSignIn ? (
+                <div className="mt-4">
+                  <h2>Sign In</h2>
+                  <form>
+                    <div className="form-group">
+                      <label htmlFor="signInEmail">Email:</label>
+                      <input type="email" className="form-control" name="email" id="signInEmail" />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="signInPassword">Password:</label>
+                      <input type="password" className="form-control" name="password" id="signInPassword" />
+                    </div>
+                    <button type="submit" className="btn btn-success" onClick={signIn}>
+                      Sign In
+                    </button>
+                  </form>
                 </div>
-            ) : (
-                <div>
-                    <h2>Sign Up</h2>
-                    <form>
-                        <label htmlFor="signUpuserName">
-                            userName:
-                            <input type="text" name="userName" id="signUpuserName" />
-                        </label>
-                        <br />
-                        <label htmlFor="signUpEmail">
-                            Email:
-                            <input type="email" name="email" id="signUpEmail" />
-                        </label>
-                        <br />
-                        <label htmlFor="signUpPassword">
-                            Password:
-                            <input type="password" name="password" id="signUpPassword" />
-                        </label>
-                        <br />
-                        <label htmlFor="confirmPassword">
-                            Confirm Password:
-                            <input type="password" name="confirmPassword" id="confirmPassword" />
-                        </label>
-                        <br />
-                        <button type="submit" onClick={signUp}>
-                            Sign Up
-                        </button>
-                    </form>
+              ) : (
+                <div className="mt-4">
+                  <h2>Sign Up</h2>
+                  <form>
+                    <div className="form-group">
+                      <label htmlFor="signUpUsername">Username:</label>
+                      <input type="text" className="form-control" name="username" id="signUpUsername" />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="signUpEmail">Email:</label>
+                      <input type="email" className="form-control" name="email" id="signUpEmail" />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="signUpPassword">Password:</label>
+                      <input type="password" className="form-control" name="password" id="signUpPassword" />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="confirmPassword">Confirm Password:</label>
+                      <input type="password" className="form-control" name="confirmPassword" id="confirmPassword" />
+                    </div>
+                    <button type="submit" className="btn btn-primary" onClick={signUp}>
+                      Sign Up
+                    </button>
+                  </form>
                 </div>
-            )}
-        </div>
-    );
+              )}
+            </div>
+          );
 }
 
 export default PlayerRegistration;
