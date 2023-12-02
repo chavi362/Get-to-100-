@@ -61,9 +61,9 @@ Players can add themselves to the game, perform mathematical operations on a ran
    ```bash
    git clone https://github.com/your-username/GetTo100.git
 
- ## Install dependencies:
+## Install dependencies:
 
-```bash
+bash
 cd GetTo100
 npm install
 
@@ -72,11 +72,11 @@ npm install
 
 Start the game:
 
-```bash
+bash
 npm run dev
 
 
-Open your browser and navigate to the link you'll get
+Open your browser and navigate to the link you'll get.
 
 Follow the on-screen instructions to add players, perform operations, and enjoy the game!
 
