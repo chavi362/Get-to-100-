@@ -34,7 +34,8 @@ markdown
 
 # GetTo100 Game
 
-GetTo100 is a simple game application where players perform operations to reach the number 100. Players can add themselves to the game, perform mathematical operations on a random number, and aim to reach 100 to win.
+GetTo100 is a simple game application where players perform operations to reach the number 100. 
+Players can add themselves to the game, perform mathematical operations on a random number, and aim to reach 100 to win.
 
 ## Table of Contents
 
@@ -51,7 +52,7 @@ GetTo100 is a simple game application where players perform operations to reach 
 
 ### Prerequisites
 
-- Node.js and npm installed
+- Node.js, npm and Bootstrap installed
 
 ### Installation
 
@@ -62,7 +63,7 @@ GetTo100 is a simple game application where players perform operations to reach 
 
  ## Install dependencies:
 
-bash
+```bash
 cd GetTo100
 npm install
 
@@ -71,11 +72,11 @@ npm install
 
 Start the game:
 
-bash
-npm start
+```bash
+npm run dev
 
 
-Open your browser and navigate to [http://localhost:3000](http://localhost:3000).
+Open your browser and navigate to the link you'll get
 
 Follow the on-screen instructions to add players, perform operations, and enjoy the game!
 
