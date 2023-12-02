@@ -20,5 +20,4 @@ function WinAnimation({ handleNewGame, quitGame }) {
     </div>
   );
 }
-
 export default WinAnimation;

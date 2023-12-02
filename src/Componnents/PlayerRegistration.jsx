@@ -71,61 +71,72 @@ function PlayerRegistration(props) {
                       <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
                         {isSignIn ? 'Sign In' : 'Sign up'}
                       </p>
-                      {!isSignIn ? (
                       <form className="mx-1 mx-md-4">
-                        <div className="d-flex flex-row align-items-center mb-4">
-                          <i className="fas fa-user fa-lg me-3 fa-fw"></i>
-                          <div className="form-outline flex-fill mb-0">
-                            <input type="text" id="signUpuserName" className="form-control" />
-                            <label className="form-label" htmlFor="signUpuserName">
-                              Your Name
-                            </label>
+                        {!isSignIn ? (
+                          <div>
+                            <div className="d-flex flex-row align-items-center mb-4">
+                              <i className="fas fa-user fa-lg me-3 fa-fw"></i>
+                              <div className="form-outline flex-fill mb-0">
+                                <input type="text" id="signUpuserName" className="form-control" />
+                                <label className="form-label" htmlFor="signUpuserName">
+                                  Your Name
+                                </label>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                        ): null}
+                        ) : null}
                         <div className="d-flex flex-row align-items-center mb-4">
                           <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                          <div className="form-outline flex-fill mb-0">
-                            <input type="email" id="signUpEmail" className="form-control" />
+                          {!isSignIn ? (<div className="form-outline flex-fill mb-0"> <input type="email" id="signUpEmail" className="form-control" />
                             <label className="form-label" htmlFor="signUpEmail">
                               Your Email
                             </label>
-                          </div>
+                          </div>) : (<div className="form-outline flex-fill mb-0"> <input type="email" id="signInEmail" className="form-control" />
+                            <label className="form-label" htmlFor="signInEmail">
+                              Your Email
+                            </label>
+                          </div>)
+                          }
                         </div>
                         <div className="d-flex flex-row align-items-center mb-4">
                           <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
-                          <div className="form-outline flex-fill mb-0">
+                          {!isSignIn ? (<div className="form-outline flex-fill mb-0">
                             <input type="password" id="signUpPassword" className="form-control" />
                             <label className="form-label" htmlFor="signUpPassword">
                               Password
                             </label>
-                          </div>
+                          </div>) : (<div className="form-outline flex-fill mb-0">
+                            <input type="password" id="signInPassword" className="form-control" />
+                            <label className="form-label" htmlFor="signInPassword">
+                              Password
+                            </label>
+                          </div>)}
                         </div>
-                        {!isSignIn ? 
+                        {!isSignIn ? (
                           <>
-                          <div className="d-flex flex-row align-items-center mb-4">
-                            <i className="fas fa-key fa-lg me-3 fa-fw"></i>
-                            <div className="form-outline flex-fill mb-0">
-                              <input type="password" id="confirmPassword" className="form-control" />
-                              <label className="form-label" htmlFor="confirmPassword">
-                                Repeat your password
+                            <div className="d-flex flex-row align-items-center mb-4">
+                              <i className="fas fa-key fa-lg me-3 fa-fw"></i>
+                              <div className="form-outline flex-fill mb-0">
+                                <input type="password" id="confirmPassword" className="form-control" />
+                                <label className="form-label" htmlFor="confirmPassword">
+                                  Repeat your password
+                                </label>
+                              </div>
+                            </div>
+                            <div className="form-check d-flex justify-content-center mb-5">
+                              <input
+                                className="form-check-input me-2"
+                                type="checkbox"
+                                value=""
+                                id="form2Example3c"
+                              />
+                              <label className="form-check-label" htmlFor="form2Example3">
+                                I agree to all statements in <a href="#!">Terms of service</a>
                               </label>
                             </div>
-                          </div>
-                          <div className="form-check d-flex justify-content-center mb-5">
-                          <input
-                            className="form-check-input me-2"
-                            type="checkbox"
-                            value=""
-                            id="form2Example3c"
-                          />
-                          <label className="form-check-label" htmlFor="form2Example3">
-                            I agree to all statements in <a href="#!">Terms of service</a>
-                          </label>
-                        </div>
-                        </>
+                          </>
                         ) : null}
-                        
+
                         <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                           {isSignIn ? (
                             <button type="submit" onClick={signIn} className="btn btn-primary btn-lg">
