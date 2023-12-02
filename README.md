@@ -60,49 +60,49 @@ GetTo100 is a simple game application where players perform operations to reach 
    ```bash
    git clone https://github.com/your-username/GetTo100.git
 
-    Install dependencies:
+ ## Install dependencies:
 
-    bash
+bash
+cd GetTo100
+npm install
 
-    cd GetTo100
-    npm install
 
-Usage
+## Usage
 
-    Start the game:
+Start the game:
 
-    bash
+bash
+npm start
 
-    npm start
 
-    Open your browser and navigate to http://localhost:3000.
+Open your browser and navigate to [http://localhost:3000](http://localhost:3000).
 
-    Follow the on-screen instructions to add players, perform operations, and enjoy the game!
+Follow the on-screen instructions to add players, perform operations, and enjoy the game!
 
-Features
+## Features
 
-    Add multiple players to the game.
-    Perform mathematical operations to reach the target number (100).
-    Track the number of steps taken by each player.
-    Win animation and options to start a new game or quit upon reaching 100.
+- Add multiple players to the game.
+- Perform mathematical operations to reach the target number (100).
+- Track the number of steps taken by each player.
+- Win animation and options to start a new game or quit upon reaching 100.
 
-Game Rules
+## Game Rules
 
-    Players can perform four operations: / 2, * 2, + 1, - 1.
-    Players aim to reach the target number of 100.
-    The game disables the current player after each move.
-    The game includes a win animation upon reaching 100.
+- Players can perform four operations: / 2, * 2, + 1, - 1.
+- Players aim to reach the target number of 100.
+- The game disables the current player after each move.
+- The game includes a win animation upon reaching 100.
 
-Contributing
+## Contributing
 
 Contributions are welcome! Follow these steps:
 
-    Fork the project.
-    Create your feature branch: git checkout -b feature/NewFeature.
-    Commit your changes: git commit -m 'Add a new feature'.
-    Push to the branch: git push origin feature/NewFeature.
-    Open a pull request.
+1. Fork the project.
+2. Create your feature branch: git checkout -b feature/NewFeature.
+3. Commit your changes: git commit -m 'Add a new feature'.
+4. Push to the branch: git push origin feature/NewFeature.
+5. Open a pull request.
 
-License
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
