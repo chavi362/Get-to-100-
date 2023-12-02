@@ -63,7 +63,7 @@ Players can add themselves to the game, perform mathematical operations on a ran
 
 ## Install dependencies:
 
-bash
+  ```bash
 cd GetTo100
 npm install
 
