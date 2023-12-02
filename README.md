@@ -23,7 +23,7 @@ GetTo100 is a simple game application where players perform operations to reach 
 
 1. Clone the repository:
 
-   ```bash
+    bash
    git clone https://github.com/your-username/GetTo100.git
 
    cd GetTo100
