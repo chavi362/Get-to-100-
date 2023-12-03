@@ -7,7 +7,7 @@ function GameBoardsDisplay(props) {
     return (
         <div>
             {games.map((game, index) => (
-                <GameBoard key={index} index={index} game={game} disableGame={props.disableGame} quitOneGame={props.quitOneGame} />
+                <GameBoard key={index} index={index} game={game} disableGame={props.disableGame} currentGames={props.currentGames} quitOneGame={props.quitOneGame} startGameFunction={props.startGameFunction} />
             ))}
         </div>
     );

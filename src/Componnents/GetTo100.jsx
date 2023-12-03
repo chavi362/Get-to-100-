@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import GameBoardsDisplay from './GameBoardsDisplay';
 import PlayerRegistration from './PlayerRegistration';
 
+function getRandomNumber() {
+  // Generate a random number between 1 and 100
+  return Math.floor(Math.random() * 100) + 1;
+}
+
 function GetTo100() {
   const [currentGames, setCurrentGames] = useState([]);
   const [isPlayerAdd, setIsPlayerAdd] = useState(false);
@@ -18,7 +23,11 @@ function GetTo100() {
 
   const startGameFunction = () => {
     setCurrentGames((prevGames) =>
-      prevGames.map((game, i) => ({ ...game, disable: i === 0 ? false : true }))
+      prevGames.map((game, i) => ({
+        ...game,
+        disable: i === 0 ? false : true,
+        initialNumber: getRandomNumber(),
+      }))
     );
     setStartGame(true);
   };
@@ -48,7 +57,7 @@ function GetTo100() {
           <PlayerRegistration addPlayerToTheGame={addPlayerToTheGame} />
         )}
 
-        <GameBoardsDisplay currentGames={currentGames} disableGame={disableGame} quitOneGame={quitOneGame} />
+        <GameBoardsDisplay currentGames={currentGames} disableGame={disableGame} quitOneGame={quitOneGame} startGameFunction={startGameFunction} />
       </div>
     </>
   );
