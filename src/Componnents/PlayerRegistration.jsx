@@ -5,62 +5,61 @@ import { Button, Modal } from 'react-bootstrap';
 function PlayerRegistration(props) {
   const [isSignIn, setIsSignIn] = useState(true);
   const [showModal, setShowModal] = useState(false);
-
   const handleToggle = () => {
     setIsSignIn(!isSignIn);
     setShowModal(true);
   };
-
   function signUp(e) {
     e.preventDefault();
-
     const userName = document.getElementById("signUpuserName").value;
     const email = document.getElementById("signUpEmail").value;
     const password = document.getElementById("signUpPassword").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
-
+  
     if (password !== confirmPassword) {
       alert('Passwords do not match');
       return;
     }
-
-    const storedPlayer = localStorage.getItem(email);
-
-    if (storedPlayer) {
+  
+    // Get the existing players array from local storage or create a new one
+    const existingPlayers = JSON.parse(localStorage.getItem('players')) || [];
+  
+    // Check if a player with the same email already exists
+    const existingPlayer = existingPlayers.find(player => player.email === email);
+    if (existingPlayer) {
       alert('User with this email already exists. Please sign in or use a different email.');
       return;
     }
-
+  
+    // Create a new player object
     const newPlayer = { password: password, email: email, userName: userName, AllScores: [] };
-    localStorage.setItem(email, JSON.stringify(newPlayer));
+    // Add the new player to the array
+    existingPlayers.push(newPlayer);
+    // Save the updated players array back to local storage
+    localStorage.setItem('players', JSON.stringify(existingPlayers));
+    // Update the state or perform any other necessary actions
     props.addPlayerToTheGame(newPlayer);
     setShowModal(false);
-
   }
-
+  
   function signIn(e) {
     e.preventDefault();
-
     const email = document.getElementById("signInEmail").value;
     const password = document.getElementById("signInPassword").value;
-
-    const storedPlayer = localStorage.getItem(email);
-
-    if (storedPlayer) {
-      const parsedPlayer = JSON.parse(storedPlayer);
-
-      if (parsedPlayer.password === password) {
-        props.addPlayerToTheGame(parsedPlayer);
+    const existingPlayers = JSON.parse(localStorage.getItem('players')) || [];
+    const foundPlayer = existingPlayers.find(player => player.email === email);
+    if (foundPlayer) {
+      if (foundPlayer.password === password) {
+        props.addPlayerToTheGame(foundPlayer);
         setShowModal(false);
-
       } else {
-        alert('One of the details is wrong');
+        alert('Incorrect password. Please try again.');
       }
     } else {
       alert('User not found. Please sign up.');
     }
-
   }
+  
 
   return (
     <div className="container">

@@ -2,27 +2,17 @@ import React, { useState, useEffect } from 'react';
 import WinAnimation from './WinAnimation';
  
 function GameBoard(props) {
-  const [number, setNumber] = useState(props.game.initialNumber || Math.floor(Math.random() * 99));
+  const [number, setNumber] = useState(props.initialNumber || Math.floor(Math.random() * 99));
   const [countSteps, setCountSteps] = useState(0);
-
   useEffect(() => {
-    // Check if the number is 100 and save to local storage
     if (number === 100) {
       const gameResult = {
         playerName: props.game.player.userName,
         steps: countSteps,
       };
-
-      // Retrieve existing game results from local storage
       const existingGameResults = JSON.parse(localStorage.getItem('gameResults')) || [];
-      
-      // Update the game results object with the current game result
       const updatedGameResults = [...existingGameResults, gameResult]
-
-      // Save the updated game results object back to local storage
       localStorage.setItem('gameResults', JSON.stringify(updatedGameResults));
-
-      // Update AllScores for all player
       const updatedPlayers = props.currentGames.map((game, index) => {
         if (index === props.index) {
           // Retrieve existing AllScores from local storage
