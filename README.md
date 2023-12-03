@@ -1,41 +1,6 @@
-# GetTo100 Game
+![Alt GetTo100Logo](https://github.com/chavi362/Get-to-100-/assets/4379350/a99f8484-04b5-4835-b657-c364ad3b2038)
 
-GetTo100 is a simple game application where players perform operations to reach the number 100. Players can add themselves to the game, perform mathematical operations on a random number, and aim to reach 100 to win.
-
-## Table of Contents
-
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-- [Features](#features)
-- [Game Rules](#game-rules)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js, npm  and Bootstrap installed
-
-### Installation
-
-1. Clone the repository:
-
-    bash
-   git clone https://github.com/your-username/GetTo100.git
-
-   cd GetTo100
-npm install
-Certainly! Here's the complete Markdown code that you can copy and paste into your README file:
-
-markdown
-
-# GetTo100 Game
-
-GetTo100 is a simple game application where players perform operations to reach the number 100. 
-Players can add themselves to the game, perform mathematical operations on a random number, and aim to reach 100 to win.
+**GetTo100** is a simple game application where players perform operations to reach the number 100. Players can add themselves to the game, perform mathematical operations on a random number, and aim to reach 100 to win.
 
 ## Table of Contents
 
@@ -52,38 +17,41 @@ Players can add themselves to the game, perform mathematical operations on a ran
 
 ### Prerequisites
 
-- Node.js, npm and Bootstrap installed
+- [Node.js](https://nodejs.org/en)
+- [npm](https://www.npmjs.com/)
+- [Bootstrap](https://getbootstrap.com/)
 
 ### Installation
 
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/your-username/GetTo100.git
-
-## Install dependencies:
-
-  ```bash
+1. Fork the repository.
+2. Clone the repository:
+```bash
+git clone https://github.com/your-username/GetTo100.git
+```
+2. Change to the repository folder:
+```bash
 cd GetTo100
+```
+3. Install by running:
+```bash
 npm install
-
+```
 
 ## Usage
 
-Start the game:
-
-bash
+1. Start the game application by running:
+```bash
 npm run dev
+```
 
+2. Open your browser and navigate to the link you'll get.
 
-Open your browser and navigate to the link you'll get.
-
-Follow the on-screen instructions to add players, perform operations, and enjoy the game!
+3. Follow the on-screen instructions to add players, perform operations, and enjoy the game!
 
 ## Features
 
 - Add multiple players to the game.
-- Perform mathematical operations to reach the target number (100).
+- Perform mathematical operations to reach the target number 100.
 - Track the number of steps taken by each player.
 - Win animation and options to start a new game or quit upon reaching 100.
 
@@ -99,11 +67,21 @@ Follow the on-screen instructions to add players, perform operations, and enjoy 
 Contributions are welcome! Follow these steps:
 
 1. Fork the project.
-2. Create your feature branch: git checkout -b feature/NewFeature.
-3. Commit your changes: git commit -m 'Add a new feature'.
-4. Push to the branch: git push origin feature/NewFeature.
-5. Open a pull request.
+2. Create your feature branch:
+```bash
+   git checkout -b feature/NewFeature.
+```
+4. Commit your changes:
+```bash
+git commit -m 'Add a new feature'.
+```
+6. Push to the branch:
+```bash
+git push origin feature/NewFeature.
+```
+8. Open a pull request.
 
+<a id="license"></a>
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/chavi362/Get-to-100-/LICENSE) file for details.
