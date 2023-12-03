@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import WinAnimation from './WinAnimation';
  
 function GameBoard(props) {
-  const [number, setNumber] = useState(99);
+  const [number, setNumber] = useState(Math.floor(Math.random() * 99));
   const [countSteps, setCountSteps] = useState(0);
 
   function handleOperations(operation) {
