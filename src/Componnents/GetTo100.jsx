@@ -12,6 +12,8 @@ function GetTo100() {
   const quitOneGame = (index) => {
     setCurrentGames((prevGames) => prevGames.filter((game, i) => i !== index));
   };
+
+
   const addPlayerToTheGame = (player) => {
     setCurrentGames((prevGames) => [...prevGames, { player: player, disable: true }]);
   };

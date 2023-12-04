@@ -21,6 +21,7 @@ function GameBoard(props) {
   }
   function quitGame() {
     props.quitOneGame(props.index);
+    setNumber(props.initialNumber);
   }
   return (
 
