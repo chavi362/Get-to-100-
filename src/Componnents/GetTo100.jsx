@@ -4,6 +4,7 @@ import PlayerRegistration from './PlayerRegistration';
 import TopPlayers from './TopPlayers';
 import InitializeLocalStorageButton from './InitializeLocalStorageButton';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 function GetTo100() {
   const [currentGames, setCurrentGames] = useState([]);
   const [initialized, setInitialized] = useState(false);
@@ -11,11 +12,9 @@ function GetTo100() {
   const quitOneGame = (index) => {
     setCurrentGames((prevGames) => prevGames.filter((game, i) => i !== index));
   };
-
   const addPlayerToTheGame = (player) => {
     setCurrentGames((prevGames) => [...prevGames, { player: player, disable: true }]);
   };
-
   const startGameFunction = () => {
     setCurrentGames((prevGames) =>
       prevGames.map((game, i) => ({
@@ -25,7 +24,6 @@ function GetTo100() {
     );
     setStartGame(true);
   };
-
   const disableGame = (index) => {
     setCurrentGames((prevGames) =>
       prevGames.map((game, i) => {
@@ -43,12 +41,17 @@ function GetTo100() {
     <>
       <div className="container-fluid">
         <div className="row">
-          <div className="col-lg-3"><TopPlayers  /></div>
+          <div className="col-lg-3"><TopPlayers /></div>
           <div className="col-lg-9">
             {!initialized && <InitializeLocalStorageButton setInitialized={setInitialized} />}
             {!startGame && (
               <div>
-                <button onClick={startGameFunction}>Start Game</button>
+                <button type="button" onClick={startGameFunction} className="btn mb-2 mb-md-0 btn-tertiary btn-block btn-round">
+                  <span>Start Game</span>
+                  <div className="icon icon-round d-flex align-items-center justify-content-center">
+                    <i className="bi bi-paper-plane"></i>
+                  </div>
+                </button>
                 <PlayerRegistration addPlayerToTheGame={addPlayerToTheGame} />
               </div>
             )}
@@ -56,7 +59,7 @@ function GetTo100() {
               currentGames={currentGames}
               disableGame={disableGame}
               quitOneGame={quitOneGame}
-              startGameFunction={startGameFunction}
+    
             />
           </div>
         </div>

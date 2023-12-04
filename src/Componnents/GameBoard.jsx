@@ -4,49 +4,43 @@ import WinAnimation from './WinAnimation';
 function GameBoard(props) {
   const [number, setNumber] = useState(props.initialNumber || Math.floor(Math.random() * 99));
   const [countSteps, setCountSteps] = useState(0);
-  useEffect(() => {
-    if (number === 100) {
-      const gameResult = {
-        playerName: props.game.player.userName,
-        steps: countSteps,
-      };
-      const existingGameResults = JSON.parse(localStorage.getItem('gameResults')) || [];
-      const updatedGameResults = [...existingGameResults, gameResult]
-      localStorage.setItem('gameResults', JSON.stringify(updatedGameResults));
-      const updatedPlayers = props.currentGames.map((game, index) => {
-        if (index === props.index) {
-          // Retrieve existing AllScores from local storage
-          const storedPlayerData = JSON.parse(localStorage.getItem(game.player.email)) || {};
-          const existingAllScores = storedPlayerData.AllScores || [];
-          return {
-            ...game.player,
-            AllScores: [...existingAllScores, countSteps],
-          };
-        } else {
-          const storedPlayerData = JSON.parse(localStorage.getItem(game.player.email)) || {};
-          const existingAllScores = storedPlayerData.AllScores || [];
-          return {
-            ...game.player,
-            AllScores: [...existingAllScores, countSteps-1],
-          };        
-        }
-      });
+  function checkWin()
+  {
 
-      updatedPlayers.forEach((player) => {
-        localStorage.setItem(player.email, JSON.stringify(player));
-      });
-    }
-  }, [number, countSteps, props.game.player, props.index, props.initialNumber]);
+  }
+  // useEffect(() => {
+  //   if (number === 100) {
+  //     const updatedPlayers = props.currentGames.map((game, index) => {
+  //       if (index === props.index) {
+  //         const storedPlayerData = JSON.parse(localStorage.getItem(game.player.email)) || {};
+  //         const existingAllScores = storedPlayerData.AllScores || [];
+  //         return {
+  //           ...game.player,
+  //           AllScores: [...existingAllScores, countSteps],
+  //         };
+  //       } else {
+  //         const storedPlayerData = JSON.parse(localStorage.getItem(game.player.email)) || {};
+  //         const existingAllScores = storedPlayerData.AllScores || [];
+  //         return {
+  //           ...game.player,
+  //           AllScores: [...existingAllScores, countSteps-1],
+  //         };        
+  //       }
+  //     });
+
+  //     updatedPlayers.forEach((player) => {
+  //       localStorage.setItem(player.email, JSON.stringify(player));
+  //     });
+  //   }
+  // }, [number, countSteps, props.game.player, props.index, props.initialNumber]);
 
   function handleOperations(operation) {
-    console.log(props)
     setNumber((prevNumber) => eval(`${prevNumber} ${operation}`));
     setCountSteps((prevCount) => prevCount + 1);
-    console.log(countSteps)
     props.disableGame(props.index);
+    checkWin()
   }
   function handleNewGame() {
-    props.startGameFunction();
     setNumber(props.game.initialNumber || 99)
     setCountSteps(0)
   }
@@ -62,7 +56,6 @@ function GameBoard(props) {
         <span>{props.game.disable ? 'Waiting..' : 'Your turn..'}</span>
         {number == 100 ? (
         <WinAnimation handleNewGame={handleNewGame} quitGame={quitGame} />
-
         ) : (
           <div>
             <button disabled={props.game.disable} className="btn btn-primary mr-2" onClick={() => handleOperations('/ 2')}>
@@ -79,7 +72,7 @@ function GameBoard(props) {
             </button>
           </div>
         )}
-        {countSteps}
+        <span>steps: {countSteps}</span>
       </div>
     </div>
   );
