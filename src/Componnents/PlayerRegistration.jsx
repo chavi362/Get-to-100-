@@ -19,17 +19,17 @@ function PlayerRegistration(props) {
       alert('Passwords do not match');
       return;
     }
-  
+
     // Get the existing players array from local storage or create a new one
     const existingPlayers = JSON.parse(localStorage.getItem('players')) || [];
-  
+
     // Check if a player with the same email already exists
     const existingPlayer = existingPlayers.find(player => player.email === email);
     if (existingPlayer) {
       alert('User with this email already exists. Please sign in or use a different email.');
       return;
     }
-  
+
     // Create a new player object
     const newPlayer = { password: password, email: email, userName: userName, AllScores: [] };
     // Add the new player to the array
@@ -40,7 +40,7 @@ function PlayerRegistration(props) {
     props.addPlayerToTheGame(newPlayer);
     setShowModal(false);
   }
-  
+
   function signIn(e) {
     e.preventDefault();
     const email = document.getElementById("signInEmail").value;
@@ -58,20 +58,20 @@ function PlayerRegistration(props) {
       alert('User not found. Please sign up.');
     }
   }
-  
+
 
   return (
     <div className="container">
-      <Button variant="btn btn-warning" style={{ color:"white",  border: "none", width: "75%", height: "85px", fontSize:"1.5em"}} onClick={handleToggle}>
+      <Button variant="btn btn-warning" style={{ color: "white", border: "none", width: "75%", height: "85px", fontSize: "1.5em" }} onClick={handleToggle}>
         Add Another Player to the game
       </Button>
       <Modal className='modal-lg' show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
           <Modal.Title id="authModalLabel">
-            <button className="btn btn-primary" onClick={handleToggle}>
+            <Button variant="btn btn-warning" style={{ color: "white", border: "none" }} onClick={handleToggle}>
               {isSignIn ? 'SIGN UP' : 'SIGN IN'}
-            </button>          
-            </Modal.Title>
+            </Button>
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <section className="vh-100" style={{ backgroundColor: '#eee' }}>
@@ -153,13 +153,13 @@ function PlayerRegistration(props) {
 
                             <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                               {isSignIn ? (
-                                <button type="submit" onClick={signIn} className="btn btn-primary btn-lg">
+                                <Button variant="btn btn-warning" style={{ color: "white", border: "none" }} type="submit" onClick={signIn} className="btn btn-primary btn-lg">
                                   Sign in
-                                </button>
+                                </Button>
                               ) : (
-                                <button type="submit" onClick={signUp} className="btn btn-primary btn-lg">
+                                <Button variant="btn btn-warning" style={{ color: "white", border: "none" }} type="submit" onClick={signUp} className="btn btn-primary btn-lg">
                                   Register
-                                </button>
+                                </Button>
                               )}
                             </div>
                           </form>

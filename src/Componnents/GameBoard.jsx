@@ -1,54 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import WinAnimation from './WinAnimation';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button, Modal } from 'react-bootstrap';
 
 function GameBoard(props) {
-  const [number, setNumber] = useState(props.initialNumber || Math.floor(Math.random() * 99));
-  const [countSteps, setCountSteps] = useState(0);
-  function checkWin() {
-    if (number == 100) {
-       
-    }
-  }
-  function handleOperations(operation) {
-    setNumber((prevNumber) => eval(`${prevNumber} ${operation}`));
-    setCountSteps((prevCount) => prevCount + 1);
-    props.disableGame(props.index);
-    checkWin()
-  }
-  function handleNewGame() {
-    setNumber(props.game.initialNumber || 99)
-    setCountSteps(0)
-  }
-  function quitGame() {
+  const handleQuitGame = () => {
     props.quitOneGame(props.index);
-    setNumber(props.initialNumber);
-  }
-  return (
+  };
+  const handleNewGameIndex = () => {
+    props.handleNewGame(props.game);
+  };
 
+  return (
     <div className="card mt-3">
       <div className="card-body">
         <span>{props.game.player.userName}</span>
-        <p>Random Number: {number}</p>
+        <br />
         <span>{props.game.disable ? 'Waiting..' : 'Your turn..'}</span>
-        {number == 100 ? (
-          <WinAnimation handleNewGame={handleNewGame} quitGame={quitGame} />
+        {props.game.number && <p>Random Number: {props.game.number}</p>}
+        {props.game.isWin ? (
+          <WinAnimation handleNewGame={handleNewGameIndex} quitGame={handleQuitGame} />
         ) : (
           <div>
-            <button disabled={props.game.disable} className="btn btn-primary mr-2" onClick={() => handleOperations('/ 2')}>
+            <Button variant="btn btn-warning" style={{ color: "white", border: "none" }} disabled={props.game.disable} className="btn btn-primary mr-2" onClick={() => props.handleOperation('/ 2', props.index)}>
               /2
-            </button>
-            <button disabled={props.game.disable} className="btn btn-primary mr-2" onClick={() => handleOperations('* 2')}>
+            </Button>
+            <Button variant="btn btn-warning" style={{ color: "white", border: "none" }} disabled={props.game.disable} className="btn btn-primary mr-2" onClick={() => props.handleOperation('* 2', props.index)}>
               *2
-            </button>
-            <button disabled={props.game.disable} className="btn btn-primary mr-2" onClick={() => handleOperations('+ 1')}>
+            </Button>
+            <Button variant="btn btn-warning" style={{ color: "white", border: "none" }} disabled={props.game.disable} className="btn btn-primary mr-2" onClick={() => props.handleOperation('+ 1', props.index)}>
               +1
-            </button>
-            <button disabled={props.game.disable} className="btn btn-primary" onClick={() => handleOperations('- 1')}>
+            </Button>
+            <Button variant="btn btn-warning" style={{ color: "white", border: "none" }} disabled={props.game.disable} className="btn btn-primary" onClick={() => props.handleOperation('- 1', props.index)}>
               -1
-            </button>
+            </Button>
           </div>
         )}
-        <span>steps: {countSteps}</span>
+
+        {props.game.number && <span>steps: {props.game.numberOfSteps}</span>}
       </div>
     </div>
   );

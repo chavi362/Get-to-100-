@@ -14,6 +14,7 @@ function WinAnimation({ handleNewGame, quitGame }) {
       <button className="btn btn-success mr-2" onClick={handleNewGame}>
         New Game
       </button>
+
       <button className="btn btn-danger" onClick={quitGame}>
         Quit
       </button>
