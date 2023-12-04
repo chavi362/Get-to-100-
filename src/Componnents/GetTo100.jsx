@@ -37,6 +37,9 @@ function GetTo100() {
       })
     );
   };
+  function winOneGame() {
+
+  }
   return (
     <>
       <div className="container-fluid">
@@ -45,25 +48,22 @@ function GetTo100() {
           <div className="col-lg-9">
             {!initialized && <InitializeLocalStorageButton setInitialized={setInitialized} />}
             {!startGame && (
-              <div>
-                <button type="button" onClick={startGameFunction} className="btn mb-2 mb-md-0 btn-tertiary btn-block btn-round">
-                  <span>Start Game</span>
-                  <div className="icon icon-round d-flex align-items-center justify-content-center">
-                    <i className="bi bi-paper-plane"></i>
-                  </div>
+              <div className="container">
+                <PlayerRegistration  addPlayerToTheGame={addPlayerToTheGame} />
+                <button className=" btn btn-outline-warning" type="button" onClick={startGameFunction} >
+                  <img src="https://i.gifer.com/ZS3t.gif" style={{ width: "30%", margin: "none" }}></img>
                 </button>
-                <PlayerRegistration addPlayerToTheGame={addPlayerToTheGame} />
               </div>
             )}
             <GameBoardsDisplay
               currentGames={currentGames}
               disableGame={disableGame}
               quitOneGame={quitOneGame}
-    
+
             />
           </div>
-        </div>
-      </div>
+        </div >
+      </div >
     </>
   );
 }
