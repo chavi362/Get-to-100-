@@ -62,8 +62,8 @@ function PlayerRegistration(props) {
 
   return (
     <div className="container">
-      <Button variant="primary" onClick={handleToggle}>
-        Add Player
+      <Button variant="btn btn-warning" style={{ color:"white",  border: "none", width: "75%", height: "85px", fontSize:"1.5em"}} onClick={handleToggle}>
+        Add Another Player to the game
       </Button>
       <Modal className='modal-lg' show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>

@@ -4,7 +4,7 @@ import PlayerRegistration from './PlayerRegistration';
 import TopPlayers from './TopPlayers';
 import InitializeLocalStorageButton from './InitializeLocalStorageButton';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
+
 function GetTo100() {
   const [currentGames, setCurrentGames] = useState([]);
   const [initialized, setInitialized] = useState(false);
@@ -48,12 +48,12 @@ function GetTo100() {
           <div className="col-lg-9">
             {!initialized && <InitializeLocalStorageButton setInitialized={setInitialized} />}
             {!startGame && (
-              <div className="container">
-                <PlayerRegistration  addPlayerToTheGame={addPlayerToTheGame} />
-                <button className=" btn btn-outline-warning" type="button" onClick={startGameFunction} >
-                  <img src="https://i.gifer.com/ZS3t.gif" style={{ width: "30%", margin: "none" }}></img>
-                </button>
-              </div>
+             <div className="container d-flex align-items-center justify-content-center">
+             <PlayerRegistration addPlayerToTheGame={addPlayerToTheGame} />
+             <button className="btn btn-outline-warning mt-3" type="button" onClick={startGameFunction}>
+               <img src="https://i.gifer.com/ZS3t.gif" style={{ width: "30%" }} alt="Start Game" />
+             </button>
+           </div>
             )}
             <GameBoardsDisplay
               currentGames={currentGames}
