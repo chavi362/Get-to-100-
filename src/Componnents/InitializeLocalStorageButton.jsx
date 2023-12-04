@@ -1,6 +1,6 @@
 import React from 'react';
 
-function InitializeLocalStorageButton() {
+function InitializeLocalStorageButton(props) {
   const initializeLocalStorage = () => {
     const players = [];
 
@@ -18,6 +18,7 @@ function InitializeLocalStorageButton() {
       players.push(player);
     }
     localStorage.setItem('players', JSON.stringify(players));
+    props.setInitialized(true);
   };
 
   return (

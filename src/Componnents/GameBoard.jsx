@@ -32,7 +32,6 @@ function GameBoard(props) {
         }
       });
 
-      // Update the player objects in local storage
       updatedPlayers.forEach((player) => {
         localStorage.setItem(player.email, JSON.stringify(player));
       });

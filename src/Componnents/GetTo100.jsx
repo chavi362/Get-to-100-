@@ -3,9 +3,10 @@ import GameBoardsDisplay from './GameBoardsDisplay';
 import PlayerRegistration from './PlayerRegistration';
 import TopPlayers from './TopPlayers';
 import InitializeLocalStorageButton from './InitializeLocalStorageButton';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 function GetTo100() {
   const [currentGames, setCurrentGames] = useState([]);
+  const [initialized, setInitialized] = useState(false);
   const [startGame, setStartGame] = useState(false);
   const quitOneGame = (index) => {
     setCurrentGames((prevGames) => prevGames.filter((game, i) => i !== index));
@@ -38,16 +39,28 @@ function GetTo100() {
       })
     );
   };
-
   return (
     <>
-    <InitializeLocalStorageButton />
-    <TopPlayers/>
-      {!startGame &&<div>
-       <button onClick={startGameFunction}>Start Game</button>
-          <PlayerRegistration addPlayerToTheGame={addPlayerToTheGame} />
-       </div>}
-        <GameBoardsDisplay currentGames={currentGames} disableGame={disableGame} quitOneGame={quitOneGame} startGameFunction={startGameFunction} />
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-lg-3"><TopPlayers  /></div>
+          <div className="col-lg-9">
+            {!initialized && <InitializeLocalStorageButton setInitialized={setInitialized} />}
+            {!startGame && (
+              <div>
+                <button onClick={startGameFunction}>Start Game</button>
+                <PlayerRegistration addPlayerToTheGame={addPlayerToTheGame} />
+              </div>
+            )}
+            <GameBoardsDisplay
+              currentGames={currentGames}
+              disableGame={disableGame}
+              quitOneGame={quitOneGame}
+              startGameFunction={startGameFunction}
+            />
+          </div>
+        </div>
+      </div>
     </>
   );
 }

@@ -15,7 +15,6 @@ function PlayerRegistration(props) {
     const email = document.getElementById("signUpEmail").value;
     const password = document.getElementById("signUpPassword").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
-  
     if (password !== confirmPassword) {
       alert('Passwords do not match');
       return;
