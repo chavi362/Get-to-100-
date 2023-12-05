@@ -74,7 +74,7 @@ function PlayerRegistration(props) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <section className="vh-100" style={{ backgroundColor: '#eee' }}>
+          <section className={isSignIn?"vh-70" :"vh-100"}style={{ backgroundColor: '#eee' } }>
             <div className="container">
               <div className="row d-flex justify-content-center align-items-center">
                 <div className="col-lg-12 col-xl-11">
