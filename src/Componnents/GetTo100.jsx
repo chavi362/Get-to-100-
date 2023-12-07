@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PlayerRegistration from './PlayerRegistration';
 import TopPlayers from './TopPlayers';
 import GameBoard from './GameBoard';
@@ -10,6 +10,7 @@ function GetTo100() {
   const [currentGames, setCurrentGames] = useState([]);
   const [initialized, setInitialized] = useState(false);
   const [startGame, setStartGame] = useState(false);
+  const didUserWinTheGame = useRef(false);
   const quitOneGame = (index) => {
     setCurrentGames((prevGames) => prevGames.filter((game, i) => i !== index));
   };
@@ -18,6 +19,7 @@ function GetTo100() {
   };
 
   const startGameFunction = () => {
+    didUserWinTheGame.current = false;
     setCurrentGames((prevGames) =>
       prevGames.map((game, i) => ({
         ...game,
@@ -52,7 +54,8 @@ function GetTo100() {
         if (i === index) {
           const newNumber = eval(`${game.number} ${operation}`);
           const isWin = newNumber === 100;
-          if (isWin) {
+          if (isWin && !didUserWinTheGame.current) {
+            didUserWinTheGame.current = true;
             return winOneGame(game);
           }
           else {
